@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MALIK MUMBAI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; width: 100%; overflow-x: hidden; font-family: 'Space Grotesk', sans-serif; background: #0a1a0a; color: #eaffea; }
+
+    @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @keyframes greenpulse {
+      0%,100%{box-shadow:0 0 6px #22c55e99}
+      50%{box-shadow:0 0 18px #22c55e}
+    }
+
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); filter: drop-shadow(0 0 12px #22c55e99); }
+      14%      { transform: scale(1.18); filter: drop-shadow(0 0 28px #22c55e); }
+      28%      { transform: scale(1); }
+      42%      { transform: scale(1.1); filter: drop-shadow(0 0 22px #22c55ecc); }
+    }
+
+    @keyframes hang {
+      0% { transform: rotate(-6deg) translateY(0); }
+      20% { transform: rotate(7deg) translateY(6px); }
+      40% { transform: rotate(-4deg) translateY(2px); }
+      60% { transform: rotate(5deg) translateY(8px); }
+      80% { transform: rotate(-3deg) translateY(3px); }
+      100% { transform: rotate(-6deg) translateY(0); }
+    }
+    @keyframes barfill { to { width: var(--w); } }
+    @keyframes shine { 0%,65%{left:-100%} 100%{left:160%} }
+    @keyframes ping { 75%,100%{transform:scale(2.2);opacity:0} }
+
+    .animate-tick { animation: tick 18s linear infinite; }
+    .animate-greenpulse { animation: greenpulse 1.5s ease-in-out infinite; }
+    .animate-barfill { animation: barfill 1.5s cubic-bezier(.4,1.6,.6,1) forwards; width: 0%; }
+    .animate-barshine {
+      position: relative;
+      overflow: hidden;
+    }
+    .animate-barshine::after {
+      content: '';
+      position: absolute;
+      left: -40%;
+      top: 0; bottom: 0;
+      width: 40%;
+      background: linear-gradient(120deg, transparent, #bbffbb55 60%, transparent 100%);
+      animation: shine 2.2s linear infinite;
+    }
+
+    .animated-border {
+      position: relative;
+      z-index: 1;
+    }
+    .animated-border::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 1rem;
+      padding: 0;
+      z-index: -1;
+      background: linear-gradient(270deg, #22c55e, #bbffbb, #22c55e, #bbffbb);
+      background-size: 400% 400%;
+      animation: borderMove 3s linear infinite;
+    }
+    @keyframes borderMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hang-anim { animation: hang 2.8s ease-in-out infinite; transform-origin: 50% 0; }
+    .animate-shine::after {
+      content: '';
+      position: absolute; top:0; left:-100%; width:50%; height:100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: skewX(-18deg);
+      animation: shine 3s ease-in-out infinite;
+    }
+    .animate-ping-custom { animation: ping 1.3s cubic-bezier(0,0,.2,1) infinite; }
+
+    /* Diagonal cut bottom for header */
+    .clip-diagonal {
+      position: relative;
+    }
+    .clip-diagonal::after {
+      content: ''; position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 32px;
+      background: #0a1a0a;
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    }
+  </style>
+<!-- Meta Pixel Code -->
+
+<!-- End Meta Pixel Code -->
+</head>
+<body class="bg-[#0e0e0e]">
+
+  <div class="min-h-screen w-full flex flex-col relative">
+
+    <!-- BAND 1 — TICKER -->
+    <div class="bg-[#0e0e0e] border-b border-white/10 overflow-hidden whitespace-nowrap flex-shrink-0 py-2">
+      <div class="inline-block animate-tick text-[10px] font-semibold tracking-[0.2em] text-violet-400/60 lowercase" style="color: rgb(235 235 235 / 84%);">
+        <span class="px-4">◈ MALIK MUMBAI</span>
+        <span class="px-4">◈ TELEGRAM CHANNEL</span>
+        <span class="px-4">◈ DAILY TIPS</span>
+        <span class="px-4">◈ EXPERT ANALYSIS</span>
+        <span class="px-4">◈ FREE TO JOIN</span>
+        <span class="px-4">◈ LIVE ALERTS</span>
+        <span class="px-4">◈ PREMIUM PICKS</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="px-4">◈ MALIK MUMBAI</span>
+        <span class="px-4">◈ TELEGRAM CHANNEL</span>
+        <span class="px-4">◈ DAILY TIPS</span>
+        <span class="px-4">◈ EXPERT ANALYSIS</span>
+        <span class="px-4">◈ FREE TO JOIN</span>
+        <span class="px-4">◈ LIVE ALERTS</span>
+        <span class="px-4">◈ PREMIUM PICKS</span>
+      </div>
+    </div>
+
+    <!-- BAND 2 — NAME & IMAGE -->
+    <div class="relative bg-[#123d1a] px-6 pt-10 pb-16 overflow-hidden flex-shrink-0 clip-diagonal">
+      <!-- Background Image Integration -->
+      <div class="absolute inset-0 opacity-10 mix-blend-overlay">
+        <img src="profile.jpeg" alt="" class="w-full h-full object-cover grayscale brightness-150">
+      </div>
+      
+
+      <div class="relative z-10 flex flex-col gap-2">
+        <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-[9px] tracking-widest text-white/70 uppercase w-fit">
+          <div class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.8)] animate-greenpulse"></div>
+          Telegram Channel · Free
+        </div>
+        
+        <div class="mt-4 flex flex-col">
+          <h1 class="font-['Unbounded'] font-black text-[clamp(2.8rem,14vw,6rem)] text-white leading-[0.85] tracking-tight">MALIK</h1>
+          <h2 class="font-['Unbounded'] font-normal text-[clamp(1.6rem,8vw,3.5rem)] text-white/40 leading-none tracking-wide">MUMBAI</h2>
+        </div>
+      </div>
+
+      <!-- Small Profile Overlay -->
+      <div class="absolute right-6 bottom-12 w-20 h-20 rounded-2xl overflow-hidden border-2 border-green-300/30 rotate-3 shadow-2xl z-20 hang-anim">
+        <img src="profile.jpeg" alt="Malik Mumbai" class="w-full h-full object-cover">
+      </div>
+    </div>
+
+    <!-- BAND 3 — CONTENT -->
+    <div class="bg-[#0a1a0a] p-6 flex-1 flex flex-col gap-6">
+
+      <!-- Subtext -->
+      <p class="text-[0.85rem] text-green-200/60 font-light leading-relaxed border-l-2 border-green-500 pl-4">
+        Expert tips & daily predictions — premium analysis, insider picks & live alerts straight to your Telegram.
+      </p>
+
+      <!-- Chips -->
+      <div class="flex gap-2 overflow-x-auto no-scrollbar py-1">
+        <div class="flex-shrink-0 flex items-center gap-2 bg-green-700/10 border border-green-500/30 text-green-200 px-4 py-2 rounded-lg text-xs font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>Daily Tips
+        </div>
+        <div class="flex-shrink-0 flex items-center gap-2 bg-green-700/10 border border-green-500/30 text-green-200 px-4 py-2 rounded-lg text-xs font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>Expert Picks
+        </div>
+        <div class="flex-shrink-0 flex items-center gap-2 bg-green-700/10 border border-green-500/30 text-green-200 px-4 py-2 rounded-lg text-xs font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>Live Alerts
+        </div>
+        <div class="flex-shrink-0 flex items-center gap-2 bg-green-700/10 border border-green-500/30 text-green-200 px-4 py-2 rounded-lg text-xs font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>Free Access
+        </div>
+      </div>
+
+      <!-- Stat list -->
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center justify-between p-3 bg-green-900/40 border border-green-700/30 rounded-xl">
+          <span class="text-[10px] text-green-200/60 uppercase tracking-widest font-bold">Accuracy</span>
+          <div class="flex-1 h-1 bg-green-800/60 rounded-full overflow-hidden mx-4 animate-barshine">
+            <div class="h-full bg-gradient-to-r from-green-400 to-green-600 animate-barfill" style="--w:92%"></div>
+          </div>
+          <span class="font-['Unbounded'] font-bold text-sm text-green-300">92%</span>
+        </div>
+        <div class="flex items-center justify-between p-3 bg-green-900/40 border border-green-700/30 rounded-xl">
+          <span class="text-[10px] text-green-200/60 uppercase tracking-widest font-bold">Daily Tips</span>
+          <div class="flex-1 h-1 bg-green-800/60 rounded-full overflow-hidden mx-4 animate-barshine">
+            <div class="h-full bg-gradient-to-r from-green-400 to-green-600 animate-barfill" style="--w:100%; animation-delay: 0.1s"></div>
+          </div>
+          <span class="font-['Unbounded'] font-bold text-sm text-green-300">10+</span>
+        </div>
+        <div class="flex items-center justify-between p-3 bg-green-900/40 border border-green-700/30 rounded-xl">
+          <span class="text-[10px] text-green-200/60 uppercase tracking-widest font-bold">Active Members</span>
+          <div class="flex-1 h-1 bg-green-800/60 rounded-full overflow-hidden mx-4 animate-barshine">
+            <div class="h-full bg-gradient-to-r from-green-400 to-green-600 animate-barfill" style="--w:85%; animation-delay: 0.2s"></div>
+          </div>
+          <span class="font-['Unbounded'] font-bold text-sm text-green-300">52K+</span>
+        </div>
+      </div>
+  <a href="https://t.me/+8Hi0PchRanphMTgx" target="_blank" class="cta-btn group animated-border flex items-center justify-center gap-3 w-full h-14 bg-[#063d1e] text-white font-['Unbounded'] font-bold text-sm tracking-widest rounded-xl shadow-[0_8px_30px_rgba(34,197,94,0.3)] hover:scale-[1.02] active:scale-95 transition-all animate-shine overflow-hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+        <span class="inline-block align-middle">❤️</span>
+        JOIN FREE TELEGRAM
+      </a>
+    </div>
+
+    <!-- BAND 4 — CTA -->
+    <div class="bg-[#0a1a0a] px-6 pb-8 flex flex-col gap-4">
+    
+      
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping-custom absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+          </span>
+          <span class="text-[10px] text-green-200/60 uppercase tracking-tighter">Live Members Active</span>
+        </div>
+        <span class="text-[10px] text-green-200/30">Verified Analyst ✓</span>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    /* Utility fix for hiding scrollbar */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+
+</body>
+</html>
